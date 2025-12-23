@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Portfolio</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #0f172a;
+      color: #e5e7eb;
+    }
+    a { color: #38bdf8; text-decoration: none; }
+    header {
+      background: #020617;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #1f2937;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 16px;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 0;
+    }
+    nav .logo {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #38bdf8;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 18px;
+      font-size: 0.95rem;
+    }
+    nav ul li a:hover {
+      color: #a5b4fc;
+    }
+
+    /* Hero */
+    #home {
+      padding: 60px 0 40px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+    #home h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    #home h2 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #a5b4fc;
+    }
+    #home p {
+      font-size: 0.98rem;
+      margin-bottom: 18px;
+      color: #cbd5f5;
+    }
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid #38bdf8;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: transparent;
+      color: #e5e7eb;
+    }
+    .btn.primary {
+      background: #38bdf8;
+      color: #020617;
+      border-color: #38bdf8;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+    .hero-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      border: 3px solid #38bdf8;
+      object-fit: cover;
+      justify-self: center;
+    }
+
+    section {
+      padding: 40px 0 20px;
+    }
+    section h2 {
+      font-size: 1.6rem;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #1f2937;
+      display: inline-block;
+      padding-bottom: 4px;
+    }
+    section p.section-subtitle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+
+    /* About */
+    #about p {
+      font-size: 0.95rem;
+      color: #d1d5db;
+      margin-bottom: 10px;
+    }
+    #about ul {
+      margin-top: 8px;
+      padding-left: 18px;
+      font-size: 0.93rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+      gap: 16px;
+    }
+    .skill-card {
+      background: #020617;
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+    }
+    .skill-card h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+    .skill-card ul {
+      list-style: disc;
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: #cbd5f5;
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 18px;
+    }
+    .project-card {
+      background: #020617;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+    }
+    .project-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      color: #e5e7eb;
+    }
+    .project-card p {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+      color: #d1d5db;
+    }
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #111827;
+      border: 1px solid #1f2937;
+      color: #9ca3af;
+    }
+
+    /* Contact */
+    #contact ul {
+      list-style: none;
+      font-size: 0.95rem;
+    }
+    #contact li {
+      margin-bottom: 6px;
+    }
+
+    footer {
+      padding: 20px 0;
+      font-size: 0.8rem;
+      text-align: center;
+      color: #6b7280;
+      border-top: 1px solid #1f2937;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+      #home {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      #home .btn-group {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">VENKATA KRISHNA YARRAGONDA</div>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero -->
+    <section id="home">
+      <div>
+        <h1>Hi, I'm Venkata Krishna</h1>
+        <h2>B.Tech CSE-DS Student & Aspiring Full‑Stack Developer</h2>
+        <p>
+          Passionate about building web applications, solving DSA problems, and exploring data science.
+          Actively learning modern JavaScript frameworks and backend development.
+        </p>
+        <div class="btn-group">
+          <a href="#projects"><button class="btn primary">View Projects</button></a>
+          <a href="https://github.com/venkatakrishna16" target="_blank"><button class="btn">GitHub</button></a>
+          <a href="c:\Users\HP\Downloads\Yarragonda Venkata Krishna Resume.docx" target="_blank"><button class="btn">Download CV</button></a>
+        </div>
+      </div>
+      <img src="c:\Users\HP\Downloads\WhatsApp Image 2025-12-23 at 9.38.52 PM.jpeg" alt="Profile" class="hero-img" />
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>About</h2>
+      <p class="section-subtitle">Who you are and what you like working on.</p>
+      <p>
+        I'm a third‑year B.Tech student from India who enjoys building clean, responsive web UIs and experimenting with backend APIs.
+        I regularly practice DSA on platforms like LeetCode and CodeStudio.
+      </p>
+      <p>Highlights:</p>
+      <ul>
+        <li>Strong foundation in core programming (C++/Java/Python).</li>
+        <li>Good understanding of HTML, CSS, and modern JavaScript.</li>
+        <li>Interest in full‑stack development and basic data science.</li>
+      </ul>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2>Skills</h2>
+      <p class="section-subtitle">Technologies and tools you are comfortable with.</p>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3>Languages</h3>
+          <ul>
+            <li>C++ / Java</li>
+            <li>Python</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Frontend</h3>
+          <ul>
+            <li>HTML5, CSS3</li>
+            <li>React (basics)</li>
+            <li>Responsive design</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Backend & DB</h3>
+          <ul>
+            <li>Node.js & Express (basics)</li>
+            <li>REST APIs</li>
+            <li>MongoDB / MySQL</li>
+          </ul>
+        </div>
+        <div class="skill-card">
+          <h3>Tools</h3>
+          <ul>
+            <li>Git & GitHub</li>
+            <li>VS Code</li>
+            <li>Postman</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <p class="section-subtitle">Showcase 3–6 projects with short descriptions and links.</p>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Portfolio Website</h3>
+          <p>A responsive personal portfolio built with HTML, CSS, and a bit of JavaScript to showcase my skills and projects.</p>
+          <div class="tag-list">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">Responsive</span>
+          </div>
+          <a href="https://github.com/your-github/portfolio" target="_blank">View Code →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>Todo App</h3>
+          <p>A simple CRUD todo application with filters and local storage, focusing on clean UI and component‑based structure.</p>
+          <div class="tag-list">
+            <span class="tag">JavaScript</span>
+            <span class="tag">DOM</span>
+            <span class="tag">LocalStorage</span>
+          </div>
+          <a href="https://github.com/your-github/todo-app" target="_blank">View Code →</a>
+        </div>
+
+        <div class="project-card">
+          <h3>API‑based Weather App</h3>
+          <p>Weather dashboard that fetches live data from a public API and displays temperature, humidity, and conditions.</p>
+          <div class="tag-list">
+            <span class="tag">JS</span>
+            <span class="tag">API</span>
+            <span class="tag">JSON</span>
+          </div>
+          <a href="https://github.com/your-github/weather-app" target="_blank">View Code →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-subtitle">Easy ways for recruiters to reach you.</p>
+      <ul>
+        <li>Email: <a href="mailto:youremail@example.com">venkeyyarragonda@gmail.com</a></li>
+        <li>GitHub: <a href="https://github.com/your-github" target="_blank">https://github.com/venkatakrishna16</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/your-linkedin" target="_blank">linkedin.com/in/your-linkedin</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Your Name. Built with HTML & CSS.
+  </footer>
+</body>
+</html>
